@@ -1,0 +1,120 @@
+{
+  "name": "mostly",
+  "version": "1.0.0",
+  "description": "They mostly come at night; mostly",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "dev": "sh ./scripts/dev.sh",
+    "test": "sh ./scripts/test.sh",
+    "test:unit": "sh ./scripts/testUnit.sh",
+    "test:func": "sh ./scripts/testFunc.sh",
+    "test:e2e": "sh ./scripts/testE2E.sh",
+    "lint": "sh ./scripts/lint.sh",
+    "build": "sh ./scripts/build.sh",
+    "deploy": "sh ./scripts/deploy.sh",
+    "start": "sh ./scripts/prod.sh",
+    "clean": "sh ./scripts/clean.sh"
+  },
+  "dependencies": {
+    "@babel/runtime": "7.2.0",
+    "axios": "0.18.0",
+    "express": "4.16.4",
+    "helmet": "3.15.0",
+    "morgan": "1.9.1",
+    "normalize.css": "8.0.1",
+    "prop-types": "15.6.2",
+    "react": "16.6.3",
+    "react-dom": "16.6.3",
+    "react-hot-loader": "4.3.12",
+    "react-router-dom": "4.3.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "7.2.0",
+    "@babel/core": "7.2.0",
+    "@babel/node": "7.2.0",
+    "@babel/plugin-proposal-class-properties": "7.2.1",
+    "@babel/plugin-syntax-dynamic-import": "7.2.0",
+    "@babel/plugin-transform-runtime": "7.2.0",
+    "@babel/preset-env": "7.2.0",
+    "@babel/preset-react": "7.0.0",
+    "@intervolga/optimize-cssnano-plugin": "1.0.6",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-eslint": "10.0.1",
+    "babel-loader": "8.0.4",
+    "chokidar": "2.0.4",
+    "concurrently": "4.1.0",
+    "css-loader": "1.0.1",
+    "eslint": "5.9.0",
+    "eslint-config-airbnb": "17.1.0",
+    "eslint-plugin-import": "2.14.0",
+    "eslint-plugin-jsx-a11y": "6.1.2",
+    "eslint-plugin-react": "7.11.1",
+    "file-loader": "2.0.0",
+    "html-webpack-plugin": "3.2.0",
+    "husky": "1.2.0",
+    "jest": "23.6.0",
+    "jest-puppeteer": "3.5.2",
+    "lint-staged": "8.1.0",
+    "mini-css-extract-plugin": "0.4.5",
+    "now": "12.1.9",
+    "prettier": "1.15.3",
+    "puppeteer": "1.11.0",
+    "style-loader": "0.23.1",
+    "webpack": "4.27.1",
+    "webpack-cli": "3.1.2",
+    "webpack-dev-server": "3.1.10"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react"
+    ],
+    "plugins": [
+      "@babel/plugin-proposal-class-properties",
+      "@babel/plugin-syntax-dynamic-import",
+      "@babel/plugin-transform-runtime",
+      "react-hot-loader/babel"
+    ]
+  },
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "extends": "airbnb",
+    "globals": {
+      "beforeAll": true,
+      "beforeEach": true,
+      "describe": true,
+      "document": true,
+      "expect": true,
+      "it": true,
+      "jest": true,
+      "page": true,
+      "test": true,
+      "window": true
+    }
+  },
+  "eslintIgnore": [
+    "coverage/**",
+    "dist/**"
+  ],
+  "lint-staged": {
+    "*.js": [
+      "prettier --write",
+      "eslint --ignore-pattern /dist/ --fix ./",
+      "git add"
+    ],
+    "*.{css,json}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "all"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "sh ./scripts/precommit.sh"
+    }
+  }
+}

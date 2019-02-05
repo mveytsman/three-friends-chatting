@@ -1,0 +1,14 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.card {
+  width: 250px;
+}
+
+.message {
+  margin-bottom: 25px;
+}

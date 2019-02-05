@@ -1,0 +1,1 @@
+concurrently --kill-others --raw "sh ./scripts/devServer.sh" "sh ./scripts/devClient.sh"
