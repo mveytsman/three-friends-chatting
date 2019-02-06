@@ -71,7 +71,7 @@ export function withoutAuth(Component) {
     return (
       <AuthConsumer>
         {auth => (auth.loggedIn
-          ? <Redirect to="/dashboard" />
+          ? <Redirect to="/messages" />
           : <Component {...props} />)
         }
       </AuthConsumer>
