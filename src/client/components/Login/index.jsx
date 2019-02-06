@@ -40,7 +40,7 @@ class Login extends React.Component {
     const { loggedIn } = this.props;
     const { error } = this.state;
 
-    if (loggedIn) return <Redirect to="/dashboard" />;
+    if (loggedIn) return <Redirect to="/messages" />;
 
     return (
       <div className={styles.wrapper}>

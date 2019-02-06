@@ -20,7 +20,9 @@ router.use('*', handleNotFound);
 // TODO: maybe move this to its own file?
 
 const messages = [
-  { message: 'hi friends!', username: 'Max', timestamp: new Date() },
+  { message: 'Hey everyone!', username: 'Max', timestamp: new Date() },
+  { message: 'Hi friends! 👋', username: 'Emma', timestamp: new Date() },
+  { message: 'Hello! 🤗', username: 'Ana', timestamp: new Date() },
 ];
 
 function messagesHandler(req, res) {
@@ -28,7 +30,7 @@ function messagesHandler(req, res) {
 }
 
 function postMessageHandler(req, res) {
-  const username = req.body.username || 'anonymous';
+  const username = req.body.username || 'Anonymous';
   messages.push({
     message: req.body.message,
     username,
@@ -38,7 +40,7 @@ function postMessageHandler(req, res) {
 }
 
 function latestMessagesHandler(req, res) {
-  const clientMessageCount = req.body.messageCount;
+  const clientMessageCount = req.query.messageCount;
   let newMessages;
 
   if (clientMessageCount < messages.length) {
@@ -46,6 +48,7 @@ function latestMessagesHandler(req, res) {
   } else {
     newMessages = [];
   }
+  // console.log(newMessages, clientMessageCount);
   res.json(newMessages);
 }
 
