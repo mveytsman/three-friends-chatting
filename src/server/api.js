@@ -1,3 +1,4 @@
+import cors from 'cors';
 import { Router } from 'express';
 import { catchErrors, handleNotFound } from './utils/errors';
 import usersHandler from './controllers/users';
@@ -5,13 +6,13 @@ import usersHandler from './controllers/users';
 const router = Router();
 
 // Example path for `/api/users`
-router.get('/users', catchErrors(usersHandler));
+router.get('/users', cors(), catchErrors(usersHandler));
 
-router.get('/messages', catchErrors(messagesHandler));
+router.get('/messages', cors(), catchErrors(messagesHandler));
 
-router.get('/latestMessages', catchErrors(latestMessagesHandler));
+router.get('/latestMessages', cors(), catchErrors(latestMessagesHandler));
 
-router.post('/messages', catchErrors(postMessageHandler));
+router.post('/messages', cors(), catchErrors(postMessageHandler));
 
 // Handle calls to non-existent API paths
 router.use('*', handleNotFound);
