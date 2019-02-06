@@ -7,7 +7,7 @@ async function usersHandler(req, res) {
 
   // res.json(data);
 
-  res.json({"foo": "bar"});
+  res.json({ foo: 'bar' });
 }
 
 export default usersHandler;
